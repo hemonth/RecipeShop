@@ -12,7 +12,7 @@ export class DropdownDirective {
     this.isOpen = !this.isOpen;
   }
 
-  @HostListener('mouseleave') onMouseLeave1(){
-    this.isOpen = false;
-  }
+  // @HostListener('mouseleave') onMouseLeave1(){
+  //   this.isOpen = false;
+  // }
 }
