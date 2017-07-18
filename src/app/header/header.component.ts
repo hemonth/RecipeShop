@@ -8,18 +8,8 @@ import { FormsModule }   from '@angular/forms';
 })
 export class HeaderComponent {
 
-  @Output() recipiesClicked = new EventEmitter<boolean>();
-  @Output() shoppingListClicked = new EventEmitter<boolean>();
-
   title = 'Angular';
   username = "";
   password = "";
 
-  onShowRecipes(){
-    this.recipiesClicked.emit(true);
-  }
-
-  onShowShoppingList(){
-    this.shoppingListClicked.emit(true);
-  }
 }

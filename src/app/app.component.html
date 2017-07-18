@@ -1,3 +1,8 @@
-<header-component (recipiesClicked)="onShowRecipes()" (shoppingListClicked)="onShowShoppingList()"></header-component>
-<app-recipes *ngIf="showRecipes"></app-recipes>
-<app-shoppinglist *ngIf="showShoppingList"></app-shoppinglist>
+<header-component></header-component>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

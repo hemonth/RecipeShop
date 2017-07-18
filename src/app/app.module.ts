@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+// import {Routes, RouterModule} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -13,6 +15,8 @@ import { HeaderStylesDirective } from './directives/header-styles.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { CustomIfDirective } from './directives/custom-if.directive';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,10 +29,11 @@ import { CustomIfDirective } from './directives/custom-if.directive';
     ShoppingeditComponent,
     HeaderStylesDirective,
     DropdownDirective,
-    CustomIfDirective
+    CustomIfDirective,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
