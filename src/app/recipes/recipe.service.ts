@@ -9,8 +9,6 @@ export class RecipeService {
     new Recipe('Coffee', 'Hot Coffee 2', 'http://dining.ucr.edu/images/foodshot-coffeebean.jpg', [new Ingredient("Coffee Beans", 2), new Ingredient("Sugar", 3), new Ingredient("Cream", 1)])
   ];
 
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-
   getReipes() {
     return this.recipes.slice();
   }
