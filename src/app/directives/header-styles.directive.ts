@@ -28,11 +28,9 @@ export class HeaderStylesDirective implements OnInit {
 
   @HostListener('mouseleave') mouseleave(eventData: Event) {
     this.backgroundColor = 'transparent';
-    this.opacity = '0.7';
   }
 
   @HostListener('click') mouseClick(eventData: Event) {
     this.backgroundColor = this.bgColor;
-    this.opacity = '0.7';
   }
 }
