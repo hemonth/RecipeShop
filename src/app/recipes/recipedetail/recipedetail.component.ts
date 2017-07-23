@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import { Recipe } from '.././recipe.model';
 import {ShoppingListService} from '../../shoppinglist/shoppinglist.service';
 import { RecipeService } from '../recipe.service';
@@ -11,15 +12,16 @@ import { CanComponentDeactivate } from '../../canDeactivateGuard.service';
   templateUrl: './recipedetail.component.html',
   styleUrls: ['./recipedetail.component.css']
 })
-export class RecipedetailComponent implements OnInit, CanComponentDeactivate {
+export class RecipedetailComponent implements OnInit, CanComponentDeactivate, OnDestroy {
 
   recipe: Recipe;
   toShoppingListFlag = false;
   firstTimeFlag = true;
+  routeSubscription : Subscription;
   constructor(private shoppingListService: ShoppingListService, private activatedRoute: ActivatedRoute, private recipeService: RecipeService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
+  this.routeSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       this.recipe = this.recipeService.getRecipe(params['index']);
     });
   }
@@ -38,5 +40,9 @@ export class RecipedetailComponent implements OnInit, CanComponentDeactivate {
     else{
       return true;
     }
+  }
+
+  ngOnDestroy(){
+    this.routeSubscription.unsubscribe();
   }
 }
