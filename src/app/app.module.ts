@@ -14,6 +14,10 @@ import { ShoppingeditComponent } from './shoppinglist/shoppingedit/shoppingedit.
 import { HeaderStylesDirective } from './directives/header-styles.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { CustomIfDirective } from './directives/custom-if.directive';
+import { Authguard } from './authguard.service';
+import { AuthService } from './auth.service';
+import { HomeComponent } from './home/home.component';
+import { CanDeactivateGuard } from './canDeactivateGuard.service';
 
 
 
@@ -30,12 +34,13 @@ import { CustomIfDirective } from './directives/custom-if.directive';
     HeaderStylesDirective,
     DropdownDirective,
     CustomIfDirective,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [Authguard, AuthService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

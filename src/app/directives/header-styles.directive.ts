@@ -22,8 +22,13 @@ export class HeaderStylesDirective implements OnInit {
   }
 
   @HostListener('mouseenter') mouseover(eventData: Event) {
-    this.backgroundColor = "Tomato";
-    this.opacity = '1';
+    if (this.bgColor === "") {
+      this.backgroundColor = "Tomato";
+      this.opacity = '1';
+    }
+    else {
+      this.backgroundColor = this.bgColor;
+    }
   }
 
   @HostListener('mouseleave') mouseleave(eventData: Event) {
