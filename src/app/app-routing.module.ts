@@ -6,6 +6,7 @@ import { RecipedetailComponent } from './recipes/recipedetail/recipedetail.compo
 import { HomeComponent } from './home/home.component';
 import { Authguard } from './authguard.service';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
+import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
 
 const appRoutes: Routes = [
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'shopping-list', canActivate: [Authguard], component: ShoppinglistComponent }, //canActivate property can take array of guards where all the guards defined in the array are also applied to child routes.
+  { path: 'material-cards', component: AngularMaterialComponent},
   { path: '**', redirectTo: 'home'}
 ]
 @NgModule({

@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule} from '@angular/material';
 // import {Routes, RouterModule} from "@angular/router";
 
 import { AppComponent } from './app.component';
@@ -18,6 +21,7 @@ import { Authguard } from './authguard.service';
 import { AuthService } from './auth.service';
 import { HomeComponent } from './home/home.component';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
+import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
 
 
@@ -35,10 +39,18 @@ import { CanDeactivateGuard } from './canDeactivateGuard.service';
     DropdownDirective,
     CustomIfDirective,
     HomeComponent,
+    AngularMaterialComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MdButtonModule,
+    MdCardModule,
+    MdMenuModule,
+    MdToolbarModule,
+    MdIconModule
   ],
   providers: [Authguard, AuthService, CanDeactivateGuard],
   bootstrap: [AppComponent]
