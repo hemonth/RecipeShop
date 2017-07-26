@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -44,6 +45,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MdButtonModule,
