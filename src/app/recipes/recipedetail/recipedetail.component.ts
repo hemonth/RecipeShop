@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Recipe } from '.././recipe.model';
@@ -18,7 +18,7 @@ export class RecipedetailComponent implements OnInit, CanComponentDeactivate, On
   toShoppingListFlag = false;
   firstTimeFlag = true;
   routeSubscription : Subscription;
-  constructor(private shoppingListService: ShoppingListService, private activatedRoute: ActivatedRoute, private recipeService: RecipeService) { }
+  constructor(private shoppingListService: ShoppingListService, private activatedRoute: ActivatedRoute, private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit() {
   this.routeSubscription = this.activatedRoute.params.subscribe((params: Params) => {
@@ -29,6 +29,10 @@ export class RecipedetailComponent implements OnInit, CanComponentDeactivate, On
   onAddToShoppingList() {
     this.toShoppingListFlag = true;
     this.shoppingListService.addIngredients(this.recipe.ingredients);
+  }
+
+  onEditRecipe(){
+    this.router.navigate(['recipes/edit',this.activatedRoute.snapshot.params['index']]);
   }
 
   //this is not the perfect use case.

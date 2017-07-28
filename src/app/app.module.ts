@@ -23,6 +23,7 @@ import { AuthService } from './auth.service';
 import { HomeComponent } from './home/home.component';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
+import { RecipeeditComponent } from './recipes/recipeedit/recipeedit.component';
 
 
 
@@ -41,6 +42,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
     CustomIfDirective,
     HomeComponent,
     AngularMaterialComponent,
+    RecipeeditComponent,
   ],
   imports: [
     BrowserModule,
