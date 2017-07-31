@@ -1,56 +1,72 @@
 <div class="row">
   <div class="col-xs-12">
-    <form >
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" name="button">Update</button>
+          <button type="submit" class="btn btn-success" name="button">{{onRecipeEdit === true ? 'Update': 'Create'}}</button>
           <button type="button" class="btn btn-danger" name="button">Cancel</button>
         </div>
       </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" class="form-control">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input type="text" id="imagePath" formControlName="imagePath" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img src="" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" rows="6" id="description" formControlName="description" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row" formArrayName="ingredients" *ngFor="let ingredient of editForm.controls.ingredients.controls; let i= index">
+        <div class="col-xs-12" [formGroupName]="i">
+          <div class="row">
+            <div class="col-xs-8">
+              <input type="text" id="" class="form-control" formControlName="name">
+            </div>
+            <div class="col-xs-2">
+              <input type="number" id="" class="form-control" formControlName="amount">
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-danger" (click)="deleteTempIngredient(i)">X</button>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="imagePath">Image URL</label>
-              <input type="text" id="imagePath" class="form-control">
+      </div>
+      <label for="">Add Ingredient</label>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-8">
+              <input type="text" id="" class="form-control" #ingName>
+            </div>
+            <div class="col-xs-2">
+              <input type="number" id="" class="form-control" #ingAmount>
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-success" (click)="addTempIngredient()">ADD</button>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-<img src="" class="img-responsive">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea type="text" rows="6" id="description" class="form-control"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-    <div class="row">
-      <div class="col-xs-8">
-        <input type="text" id="" class="form-control">
       </div>
-      <div class="col-xs-2">
-        <input type="number" id="" class="form-control">
-      </div>
-      <div class="col-xs-2">
-        <button class="btn btn-danger">X</button>
-      </div>
-    </div>
-          </div>
-        </div>
     </form>
   </div>
 </div>

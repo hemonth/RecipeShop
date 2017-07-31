@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,6 +48,7 @@ import { RecipeeditComponent } from './recipes/recipeedit/recipeedit.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MdButtonModule,

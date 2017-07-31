@@ -15,8 +15,9 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'recipes', component: RecipesComponent, canActivate: [Authguard], canActivateChild: [Authguard], children: [
-      { path: ':index', component: RecipedetailComponent, canDeactivate: [CanDeactivateGuard] },
-      { path: 'edit/:index', component: RecipeeditComponent },
+      { path: 'create', component: RecipeeditComponent, canDeactivate: [CanDeactivateGuard] },
+      { path: ':index', component: RecipedetailComponent },
+      { path: ':index/edit', component: RecipeeditComponent, canDeactivate: [CanDeactivateGuard] },
     ]
   },
   { path: 'shopping-list', canActivate: [Authguard], component: ShoppinglistComponent }, //canActivate property can take array of guards where all the guards defined in the array are also applied to child routes.
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
   { path: '**', redirectTo: 'home' }
 ]
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { useHash: true })], //routerModule "enableTracing" property only for development purpose, watch console
+  imports: [RouterModule.forRoot(appRoutes, { enableTracing: true })], //routerModule "enableTracing" property only for development purpose, watch console; useHash for enable hashing
   exports: [RouterModule]
 })
 export class AppRoutingModule {
