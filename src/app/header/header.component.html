@@ -11,8 +11,9 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a (click)="onLogIn()" appHeaderStyles [bgCoLor]="'LightGreen'">Login</a></li>
-          <li><a (click)="onLogOut()" appHeaderStyles [bgCoLor] ="'OrangeRed'">LogOut</a></li>
+          <li *ngIf="!isLogged" ><a routerLink="/signin" appHeaderStyles [bgCoLor]="'LightGreen'">Login</a></li>
+          <li *ngIf="!isLogged" ><a routerLink="/signup" appHeaderStyles [bgCoLor]="'LightBlue'">Sign Up</a></li>
+          <li *ngIf="isLogged" ><a (click)="onLogOut()" appHeaderStyles [bgCoLor] ="'OrangeRed'">LogOut</a></li>
         </ul>
       </div>
     </div>

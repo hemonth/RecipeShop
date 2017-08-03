@@ -6,6 +6,8 @@ import { RecipedetailComponent } from './recipes/recipedetail/recipedetail.compo
 import { RecipeeditComponent } from './recipes/recipeedit/recipeedit.component';
 import { HomeComponent } from './home/home.component';
 import { Authguard } from './authguard.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
@@ -22,10 +24,12 @@ const appRoutes: Routes = [
   },
   { path: 'shopping-list', canActivate: [Authguard], component: ShoppinglistComponent }, //canActivate property can take array of guards where all the guards defined in the array are also applied to child routes.
   { path: 'material-cards', component: AngularMaterialComponent },
+  { path: 'signup', component: SignupComponent},
+  { path: 'signin', component: SigninComponent},
   { path: '**', redirectTo: 'home' }
 ]
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { enableTracing: true })], //routerModule "enableTracing" property only for development purpose, watch console; useHash for enable hashing
+  imports: [RouterModule.forRoot(appRoutes, { enableTracing: false })], //routerModule "enableTracing" property only for development purpose, watch console; useHash for enable hashing
   exports: [RouterModule]
 })
 export class AppRoutingModule {

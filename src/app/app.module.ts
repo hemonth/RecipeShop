@@ -24,6 +24,9 @@ import { HomeComponent } from './home/home.component';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
 import { RecipeeditComponent } from './recipes/recipeedit/recipeedit.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { DataStorageService } from './shared/datastorage.service';
 
 
 
@@ -43,6 +46,8 @@ import { RecipeeditComponent } from './recipes/recipeedit/recipeedit.component';
     HomeComponent,
     AngularMaterialComponent,
     RecipeeditComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,7 @@ import { RecipeeditComponent } from './recipes/recipeedit/recipeedit.component';
     MdToolbarModule,
     MdIconModule
   ],
-  providers: [Authguard, AuthService, CanDeactivateGuard],
+  providers: [Authguard, AuthService, CanDeactivateGuard, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

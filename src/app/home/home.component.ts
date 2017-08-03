@@ -10,12 +10,5 @@ export class HomeComponent {
 
   constructor(private authService: AuthService) { }
 
-  onLogIn(){
-    this.authService.login();
-  }
-
-  onLogOut(){
-    this.authService.logout();
-  }
 
 }

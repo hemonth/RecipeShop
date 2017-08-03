@@ -1,9 +1,16 @@
-import {Output, EventEmitter} from '@angular/core';
-import { Subject } from 'rxjs/subject';
+import {Output, EventEmitter, Injectable} from '@angular/core';
+import { Response } from '@angular/http';
+import { Subject } from 'rxjs/Subject';
 import {Recipe} from './recipe.model';
 import {Ingredient} from '../shared/ingredient.model';
+import { DataStorageService } from '../shared/datastorage.service';
 
+@Injectable()
 export class RecipeService {
+
+  constructor(private dataStorageService: DataStorageService){
+
+  }
 
   recipesEdited = new Subject<Recipe[]>();
   private recipes: Recipe[] = [
@@ -13,7 +20,13 @@ export class RecipeService {
   ];
 
   getReipes() {
-    return this.recipes.slice();
+    this.dataStorageService.getRecipes().subscribe((response: Response) => {
+      this.recipes = <Recipe[]>response.json();
+      console.log("recipes: ");
+      console.log(this.recipes);
+          this.recipesEdited.next(this.recipes);
+        });
+        return this.recipes;
   }
 
   getRecipe(index: number) {
@@ -21,13 +34,20 @@ export class RecipeService {
   }
 
   addRecipe(recipe: Recipe) {
-    this.recipes.push(recipe);
-    this.recipesEdited.next(this.recipes.slice());
+    this.dataStorageService.storeRecipe(recipe).subscribe((response: Response) => {
+      console.log(response);
+    });
+    this.getReipes();
   }
 
   updateRecipe(index: number, recipe: Recipe) {
     this.recipes[index] = recipe;
     this.recipesEdited.next(this.recipes.slice());
+  }
+
+  deleteRecipe(index:number){
+    this.dataStorageService.deleteRecipe(index);
+    this.getReipes();
   }
 
 }
