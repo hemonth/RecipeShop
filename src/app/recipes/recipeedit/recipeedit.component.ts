@@ -20,7 +20,7 @@ export class RecipeeditComponent implements OnInit, CanComponentDeactivate {
   name = "";
   imagePath = "";
   description = "";
-  ingredients = new FormArray([]);
+  ingredientsFormArray = new FormArray([]);
   onRecipeEdit: boolean = false;
   @ViewChild("ingName") ingName: ElementRef;
   @ViewChild("ingAmount") ingAmount: ElementRef;
@@ -36,12 +36,12 @@ export class RecipeeditComponent implements OnInit, CanComponentDeactivate {
       name: new FormControl(this.name),
       imagePath: new FormControl(this.imagePath),
       description: new FormControl(this.description),
-      ingredients: this.ingredients,
+      ingredients: this.ingredientsFormArray,
     });
   }
 
   addTempIngredient() {
-    this.ingredients.push(new FormGroup({
+    this.ingredientsFormArray.push(new FormGroup({
       name: new FormControl(this.ingName.nativeElement.value),
       amount: new FormControl(this.ingAmount.nativeElement.value),
     }));
@@ -50,7 +50,7 @@ export class RecipeeditComponent implements OnInit, CanComponentDeactivate {
   }
 
   deleteTempIngredient(index: number) {
-    this.ingredients.removeAt(index);
+    this.ingredientsFormArray.removeAt(index);
   }
 
   initIngredients() {
@@ -58,7 +58,7 @@ export class RecipeeditComponent implements OnInit, CanComponentDeactivate {
     this.imagePath = this.recipe.imagePath;
     this.description = this.recipe.description;
     for (var ing of this.recipe.ingredients) {
-      this.ingredients.push(new FormGroup({
+      this.ingredientsFormArray.push(new FormGroup({
         name: new FormControl(ing.name),
         amount: new FormControl(ing.amount),
       }))

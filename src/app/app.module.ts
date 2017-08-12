@@ -11,12 +11,13 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shoppinglist/shoppinglist.module';
+import { CustomIfDirective } from './directives/custom-if.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    //CustomIfDirective,
+    CustomIfDirective,
     AngularMaterialComponent
   ],
   imports: [
