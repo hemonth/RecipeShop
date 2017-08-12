@@ -1,10 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
-import { HomeComponent } from './core/home/home.component';
-import { Authguard } from './authguard.service';
-import { SignupComponent } from './core/signup/signup.component';
-import { SigninComponent } from './core/signin/signin.component';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
@@ -12,11 +7,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
-  { path: 'home', component: HomeComponent },
-  { path: 'shopping-list', canActivate: [Authguard], component: ShoppinglistComponent }, //canActivate property can take array of guards where all the guards defined in the array are also applied to child routes.
   { path: 'material-cards', component: AngularMaterialComponent },
-  { path: 'signup', component: SignupComponent},
-  { path: 'signin', component: SigninComponent},
   // { path: '**', redirectTo: 'home' }
 ]
 @NgModule({

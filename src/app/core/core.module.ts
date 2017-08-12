@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { CoreRoutingModule } from './core-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -18,11 +18,10 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule,
+    CoreRoutingModule,
     SharedModule,
   ],
   exports: [
-    AppRoutingModule,
     HeaderComponent,
   ]
 })
