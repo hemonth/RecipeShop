@@ -7,11 +7,7 @@ import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModu
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Authguard } from './authguard.service';
-import { AuthService } from './auth.service';
-import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
-import { DataStorageService } from './shared/datastorage.service';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shoppinglist/shoppinglist.module';
@@ -43,7 +39,6 @@ import { ShoppingListModule } from './shoppinglist/shoppinglist.module';
     MdIconModule,
 
   ],
-  providers: [Authguard, AuthService, CanDeactivateGuard, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
