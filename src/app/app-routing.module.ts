@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './core/home/home.component';
 import { Authguard } from './authguard.service';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './core/signup/signup.component';
+import { SigninComponent } from './core/signin/signin.component';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
 

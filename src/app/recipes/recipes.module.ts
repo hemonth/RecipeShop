@@ -7,7 +7,6 @@ import { RecipelistComponent } from '../recipes/recipelist/recipelist.component'
 import { RecipedetailComponent } from '../recipes/recipedetail/recipedetail.component';
 import { RecipeitemComponent } from '../recipes/recipelist/recipeitem/recipeitem.component';
 import { RecipeeditComponent } from '../recipes/recipeedit/recipeedit.component';
-import { HomeComponent } from '../home/home.component';
 import { DropdownDirective } from '../shared/dropdown.directive';
 import { RecipesRoutingModule } from '../recipes/recipes-routing.module';
 
@@ -18,7 +17,6 @@ import { RecipesRoutingModule } from '../recipes/recipes-routing.module';
     RecipedetailComponent,
     RecipeitemComponent,
     RecipeeditComponent,
-    HomeComponent,
     DropdownDirective
   ],
   imports: [
