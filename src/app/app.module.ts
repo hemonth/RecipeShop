@@ -20,7 +20,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { DataStorageService } from './shared/datastorage.service';
-import { RecipesModule } from './recipes/recipes.module';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -36,6 +36,7 @@ import { RecipesModule } from './recipes/recipes.module';
     AngularMaterialComponent,
     SignupComponent,
     SigninComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,6 @@ import { RecipesModule } from './recipes/recipes.module';
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
-    RecipesModule
   ],
   providers: [Authguard, AuthService, CanDeactivateGuard, DataStorageService],
   bootstrap: [AppComponent]
