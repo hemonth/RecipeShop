@@ -2,7 +2,9 @@ import { EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import * as firebase from 'firebase';
 export class AuthService {
+  error = new Subject<any>();
   loggedInSubject = new Subject<boolean>();
+  personObject :firebase.User;
   loggedIn: boolean = false;
   token: string;
 
@@ -21,14 +23,17 @@ export class AuthService {
   signUp(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch(
-      error => console.log(error)
-      )
+      error => {
+        console.log(error);
+        this.error.next(error);
+      })
   }
 
   login(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then( response => {
-        firebase.auth().currentUser.getToken()
+        this.personObject = firebase.auth().currentUser;
+        firebase.auth().currentUser.getIdToken()
           .then((token: string) => {
           this.token = token;
           })
@@ -38,10 +43,11 @@ export class AuthService {
   }
 
   getToken() {
-    firebase.auth().currentUser.getToken()
+    firebase.auth().currentUser.getIdToken()
     .then((token: string) => {
     this.token = token;
     })
+    console.log(this.token);
     return this.token;
   }
 

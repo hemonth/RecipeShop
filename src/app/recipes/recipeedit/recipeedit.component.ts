@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/subject';
 import { RecipeService } from '../../recipes/recipe.service';
@@ -33,17 +33,17 @@ export class RecipeeditComponent implements OnInit, CanComponentDeactivate {
       this.initIngredients();
     }
     this.editForm = this.formBuilder.group({
-      name: new FormControl(this.name),
-      imagePath: new FormControl(this.imagePath),
-      description: new FormControl(this.description),
+      name: new FormControl(this.name, [Validators.required]),
+      imagePath: new FormControl(this.imagePath, [Validators.required]),
+      description: new FormControl(this.description, [Validators.required]),
       ingredients: this.ingredientsFormArray,
     });
   }
 
   addTempIngredient() {
     this.ingredientsFormArray.push(new FormGroup({
-      name: new FormControl(this.ingName.nativeElement.value),
-      amount: new FormControl(this.ingAmount.nativeElement.value),
+      name: new FormControl(this.ingName.nativeElement.value, [Validators.required]),
+      amount: new FormControl(this.ingAmount.nativeElement.value, [Validators.required]),
     }));
     this.ingName.nativeElement.value = "";
     this.ingAmount.nativeElement.value = "";
@@ -59,8 +59,8 @@ export class RecipeeditComponent implements OnInit, CanComponentDeactivate {
     this.description = this.recipe.description;
     for (var ing of this.recipe.ingredients) {
       this.ingredientsFormArray.push(new FormGroup({
-        name: new FormControl(ing.name),
-        amount: new FormControl(ing.amount),
+        name: new FormControl(ing.name, [Validators.required]),
+        amount: new FormControl(ing.amount, [Validators.required]),
       }))
     }
   }
