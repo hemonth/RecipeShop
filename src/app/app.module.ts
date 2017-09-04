@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule} from '@angular/material';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +39,7 @@ import { CustomIfDirective } from './directives/custom-if.directive';
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
-
+    SimpleNotificationsModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })

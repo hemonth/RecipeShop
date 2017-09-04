@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { AuthService } from '../../auth.service';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-signup',
@@ -9,8 +10,8 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  error: string;
-  constructor(private authService: AuthService) { }
+
+  constructor(private authService: AuthService, private notificationService: NotificationsService) { }
 
   ngOnInit() {
   }
@@ -21,7 +22,7 @@ export class SignupComponent implements OnInit {
     const password = form.value.password;
     this.authService.signUp(email,password);
     this.authService.error.subscribe((error:any) =>{
-      this.error = error;
+      this.notificationService.error("Sign Up Failed!", error.message);
     })
   }
 

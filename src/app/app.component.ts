@@ -15,6 +15,14 @@ import * as firebase from 'firebase';
 export class AppComponent implements OnInit {
   title = 'app';
   subscription: Subscription;
+  public notificationOptions = {
+    position: ['bottom','right'],
+    animate: 'scale',
+    timeOut: 5000,
+    clickToClose: true,
+    showProgressBar: true,
+    preventDuplicates: true
+  }
 
   constructor(private authService: AuthService, private router: Router) {
 
