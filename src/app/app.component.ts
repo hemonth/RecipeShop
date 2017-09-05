@@ -16,12 +16,19 @@ export class AppComponent implements OnInit {
   title = 'app';
   subscription: Subscription;
   public notificationOptions = {
-    position: ['bottom','right'],
+    position: ['bottom', 'right'],
     animate: 'scale',
     timeOut: 5000,
     clickToClose: true,
     showProgressBar: true,
-    preventDuplicates: true
+    preventDuplicates: true,
+    preventLastDuplicates: 'all'
+  }
+  public alertOptions = {
+    overlay: true,
+    overlayClickToClose: true,
+    showCloseButton: true,
+    duration: 10000
   }
 
   constructor(private authService: AuthService, private router: Router) {
